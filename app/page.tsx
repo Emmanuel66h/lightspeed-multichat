@@ -10,10 +10,11 @@ export default function Home() {
   return (
     <main>
       <header className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10">
-        <a href="#top" className="flex items-center gap-3 font-semibold tracking-tight"><span className="flex size-9 items-center justify-center rounded-full bg-[var(--cyan)] text-sm font-bold text-[var(--background)]">L</span><span>LIGHTSPEED <span className="text-[var(--cyan)]">LABS</span></span></a>
+        <a href="#top" className="flex items-center gap-3 font-semibold tracking-tight"><span className="relative flex size-9 items-center justify-center overflow-hidden rounded-full bg-[var(--kenya-red)] text-sm font-bold text-[var(--foreground)]"><span className="absolute inset-x-0 top-0 h-1/3 bg-[var(--background)]" /><span className="absolute inset-x-0 bottom-0 h-1/3 bg-[var(--kenya-green)]" /><span className="relative">L</span></span><span>LIGHTSPEED <span className="text-[var(--cyan)]">LABS</span></span></a>
         <nav className="hidden items-center gap-8 text-sm text-[var(--muted)] md:flex"><a href="#work" className="transition hover:text-[var(--foreground)]">Work</a><a href="#studio" className="transition hover:text-[var(--foreground)]">Studio</a><a href="#contact" className="transition hover:text-[var(--foreground)]">Contact</a></nav>
         <a href="#contact" className="rounded-full border border-[var(--line)] px-4 py-2 text-sm transition hover:border-[var(--cyan)] hover:text-[var(--cyan)]">Start a project <span aria-hidden="true">↗</span></a>
       </header>
+      <div aria-hidden="true" className="mx-6 h-1 overflow-hidden rounded-full bg-[var(--background)] lg:mx-10"><div className="grid h-full grid-cols-5"><span className="bg-[var(--background)]" /><span className="bg-[var(--kenya-red)]" /><span className="bg-[var(--foreground)]" /><span className="bg-[var(--kenya-red)]" /><span className="bg-[var(--kenya-green)]" /></div></div>
 
       <section id="top" className="mx-auto max-w-7xl px-6 pb-24 pt-20 lg:px-10 lg:pb-36 lg:pt-32">
         <p className="mb-8 font-mono text-xs uppercase tracking-[0.28em] text-[var(--cyan)]">Independent digital studio · Nairobi / Everywhere</p>
