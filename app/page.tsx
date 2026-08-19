@@ -1,0 +1,39 @@
+'use client'
+
+import { useState } from 'react'
+import { ArrowUpRight, Blocks, Code2, Download, Laptop, Menu, MessageSquare, Smartphone, X } from 'lucide-react'
+
+const downloadUrl = 'https://pub-6f83262e363c455489598a584b5c6827.r2.dev/lightspeed-multichat.exe'
+const playUrl = 'https://play.google.com/store/apps/dev?id=8973591659457970823&hl=en_US'
+const contactEmail = 'lightspeedlabz@gmail.com'
+
+const reasons = [['01', 'Rooted in Kenya', 'Local stories, colors, and everyday energy are part of the work, not decoration added at the end.'], ['02', 'Made to travel', 'Our products begin with a Kenyan point of view and are designed to feel at home everywhere.'], ['03', 'Small team, big intent', 'We keep the studio close to the work: thoughtful software, playful games, and useful experiments.']]
+const capabilities = [
+  ['Blockchain', 'Open networks, wallets, and Web3 products built for useful real-world experiences.', Blocks],
+  ['Software', 'Focused tools and digital systems that remove friction and help people move faster.', Code2],
+  ['PC apps', 'Desktop experiences for Windows, macOS, and Linux that feel fast, clear, and dependable.', Laptop],
+  ['Mobile apps', 'Simple, thoughtful Android and mobile products that fit naturally into everyday life.', Smartphone],
+]
+
+export default function Page() {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const nav = ['MultiChat', 'What we build', 'Why Kenya', 'About', 'Contact']
+  return <main>
+    <nav className="site-nav" aria-label="Main navigation"><a className="brand" href="#top"><span className="brand-mark"><span /></span><span>LIGHTSPEED <b>LABZ</b></span></a><div className={`nav-links ${menuOpen ? 'open' : ''}`}>{nav.map((item) => <a key={item} href={`#${item.toLowerCase().replace(' ', '-')}`} onClick={() => setMenuOpen(false)}>{item}</a>)}<a className="nav-cta" href={downloadUrl} target="_blank" rel="noreferrer">Get MultiChat <ArrowUpRight /></a></div><button className="menu-button" aria-label={menuOpen ? 'Close menu' : 'Open menu'} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</button></nav>
+
+    <section id="top" className="hero container"><div className="hero-copy"><p className="eyebrow"><span className="kenya-dot" /> The faster way to talk · Built in Kenya</p><h1>Chat at the<br /><em>speed of play.</em></h1><p className="hero-intro">Lightspeed MultiChat brings every conversation into one fast, focused place, so your squad stays connected and your game stays on.</p><div className="hero-actions"><a className="button button-dark" href={downloadUrl} target="_blank" rel="noreferrer">Get MultiChat <Download /></a><a className="text-link" href="#multichat">Explore features <ArrowUpRight /></a></div><p className="hero-note">Free for personal use · No account required · Nairobi, Kenya</p></div><div className="hero-art multichat-art" aria-label="Lightspeed MultiChat interface preview"><div className="flag-mark"><i /><i /><i /></div><div className="chat-window"><div className="chat-window-top"><span /><span /><span /><b><MessageSquare /> LIGHTSPEED MULTICHAT</b><em>LIVE</em></div><div className="chat-window-body"><aside><i /><i /><i /><i /></aside><div><small>ALL CHANNELS / 06 CONNECTED</small><strong>One chat. Every stream.</strong><p><b>twitch</b> Welcome to the stream, everyone!</p><p><b>youtube</b> This is so good</p><p><b>kick</b> When is the next one?</p><span>Send a message to all channels... <ArrowUpRight /></span></div></div></div><span className="art-caption">More signal.<br />Less noise.</span></div></section>
+
+    <section id="multichat" className="section container"><div className="section-intro"><p className="eyebrow">The product</p><h2>One chat.<br /><em>Every stream.</em></h2><p>Everything your community is saying, brought together in one focused desktop workspace.</p></div><article className="featured-work"><div className="work-art multichat-feature"><div className="chat-orbit" /><div className="chat-card"><MessageSquare /><b>LIVE CHAT</b><span>twitch · youtube · kick</span></div><span>PRODUCT / 001</span></div><div className="work-copy"><p className="eyebrow">Lightspeed MultiChat</p><h3>More signal.<br /><em>Less noise.</em></h3><p>Monitor Twitch, YouTube, Kick, TikTok, Instagram, and more without constantly switching between tabs. Fast, calm, and built for the moments that matter.</p><div className="work-meta"><span><MessageSquare /> Windows / macOS / Linux</span><a href={downloadUrl} target="_blank" rel="noreferrer">Download MultiChat <Download /></a></div></div></article></section>
+
+    <section id="what-we-build" className="capabilities-section"><div className="container"><div className="section-intro"><p className="eyebrow">The lab</p><h2>More than one<br /><em>kind of build.</em></h2><p>From infrastructure to the apps people use every day, we make technology with a clear purpose.</p></div><div className="capability-grid">{capabilities.map(([title, copy, Icon]) => <article key={title}><Icon /><span>0{capabilities.findIndex(([item]) => item === title) + 1}</span><h3>{title}</h3><p>{copy}</p><ArrowUpRight /></article>)}</div></div></section>
+
+    <section id="why-kenya" className="reasons-section"><div className="container"><div className="section-intro"><p className="eyebrow">Why Kenya</p><h2>More than a place.<br /><em>A point of view.</em></h2></div><div className="reason-grid">{reasons.map(([number, title, copy]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{copy}</p><ArrowUpRight /></article>)}</div></div></section>
+
+    <section id="about" className="about-section container"><div><p className="eyebrow">The studio</p><h2>Curious by nature.<br /><em>Serious about craft.</em></h2></div><div><p>Lightspeed Labz is an independent technology studio building from Nairobi and thinking far beyond it. We care about the feeling a product leaves behind: clear, generous, and a little unexpected.</p><a className="text-link" href={`mailto:${contactEmail}`}>Meet the people behind it <ArrowUpRight /></a></div></section>
+
+    <section id="contact" className="download-section"><div className="container download-inner"><div><p className="eyebrow">Ready when you are</p><h2>Make your next<br /><em>move faster.</em></h2></div><div><p>Bring every stream into one focused desktop workspace with Lightspeed MultiChat.</p><a className="button button-light" href={downloadUrl} target="_blank" rel="noreferrer">Download for Windows <Download /></a><a className="download-link" href={`mailto:${contactEmail}`}>Questions? Talk to the team <ArrowUpRight /></a><small className="secondary-product">Also from the studio: Kenyan Jewel Crush for Android.</small></div></div></section>
+
+    <footer className="site-footer"><div className="container footer-top"><a className="brand" href="#top"><span className="brand-mark"><span /></span><span>LIGHTSPEED <b>LABZ</b></span></a><p>Software · Games · Kenyan ideas</p><div className="footer-links">{nav.map((item) => <a key={item} href={`#${item.toLowerCase().replace(' ', '-')}`}>{item}</a>)}<a href={`mailto:${contactEmail}`}>{contactEmail}</a></div></div><div className="container footer-bottom"><span>© 2026 Lightspeed Labz</span><span>Made with intention in Kenya.</span></div></footer>
+      <footer className="site-footer"><div className="container footer-top"><a className="brand" href="#top"><span className="brand-mark"><span /></span><span>LIGHTSPEED <b>LABZ</b></span></a><p>Software · Games · Kenyan ideas</p><div className="footer-links">{nav.map((item) => <a key={item} href={`#${item.toLowerCase().replace(' ', '-')}`}>{item}</a>)}<a href={playUrl} target="_blank" rel="noreferrer">Google Play</a><a href={`mailto:${contactEmail}`}>{contactEmail}</a></div></div><div className="container footer-bottom"><span>© 2026 Lightspeed Labz</span><span>Credits go to <a href={playUrl} target="_blank" rel="noreferrer">Lightspeed KE</a></span></div></footer>
+  </main>
+}
