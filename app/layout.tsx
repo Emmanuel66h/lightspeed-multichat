@@ -1,15 +1,19 @@
-import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
-const geist = Geist({ subsets: ['latin'], variable: '--font-geist' })
-const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono' })
-
 export const metadata: Metadata = {
-  title: 'Lightspeed Labs — Software, games, and apps for what is next',
-  description: 'Lightspeed Labs builds software, games, apps, and blockchain experiences from Nairobi to the world.',
+  title: 'Lightspeed Labz — Building the future, one project at a time.',
+  description: 'Lightspeed Labz is an independent technology studio creating software, games, blockchain technology, and digital experiences.',
+  generator: 'Lightspeed Labz',
+}
+
+export const viewport: Viewport = {
+  colorScheme: 'dark',
+  themeColor: '#0b0e18',
+  width: 'device-width',
+  initialScale: 1,
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en" className="bg-background"><body className={`${geist.variable} ${geistMono.variable}`}>{children}</body></html>
+  return <html lang="en"><body>{children}</body></html>
 }
